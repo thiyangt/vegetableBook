@@ -63,7 +63,7 @@ veg_filled <- vegetables_long_tsibble |>
 ### Dambulla: Wholesale Price
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary_dw <- veg_filled |>
   as_tibble() |>
   filter(Type == "Wholesale", Market == "Dambulla") |>
@@ -77,7 +77,7 @@ missing_summary_dw <- veg_filled |>
   mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
 ```
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 
 
 ggplot(missing_summary_dw, aes(x = factor(Year), y = missing_pct,
@@ -104,7 +104,7 @@ ggplot(missing_summary_dw, aes(x = factor(Year), y = missing_pct,
 
 ### Dambulla: Retail Price
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary <- veg_filled |>
   as_tibble() |>
   filter(Type == "Retail", Market == "Dambulla") |>
@@ -118,7 +118,7 @@ missing_summary <- veg_filled |>
   mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
 ```
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE,fig.width=10, fig.height=10}
 
 
 ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
@@ -149,7 +149,7 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
 ### Pettah: Wholesale Price
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary <- veg_filled |>
   as_tibble() |>
   filter(Type == "Wholesale", Market == "Pettah") |>
@@ -163,7 +163,7 @@ missing_summary <- veg_filled |>
   mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
 ```
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 
 
 ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
@@ -193,7 +193,7 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
 ### Pettah: Retail Price
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary <- veg_filled |>
   as_tibble() |>
   filter(Type == "Retail", Market == "Pettah") |>
