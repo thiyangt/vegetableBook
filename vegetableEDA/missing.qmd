@@ -88,7 +88,7 @@ ggplot(missing_summary_dw, aes(x = factor(Year), y = missing_pct,
     vjust = 0.9,
     size = 3
   ) +
-  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  facet_wrap(~ Item, ncol = 4, nrow = 4, scales = "free_y")  +
   labs(
     x = "Year",
     y = "Missing Percentage (%)"
@@ -129,7 +129,7 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
     vjust = 0.9,
     size = 3
   ) +
-  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  facet_wrap(~ Item, ncol = 4, nrow = 4, scales = "free_y")  +
   labs(
     x = "Year",
     y = "Missing Percentage (%)"
@@ -174,7 +174,7 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
     vjust = 0.9,
     size = 3
   ) +
-  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  facet_wrap(~ Item, ncol = 4, nrow = 4, scales = "free_y")  +
   labs(
     x = "Year",
     y = "Missing Percentage (%)"
@@ -207,7 +207,7 @@ missing_summary <- veg_filled |>
   mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
 ```
 
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, fig.width=10, fig.height=10}
 
 
 ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
@@ -218,7 +218,7 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
     vjust = 0.9,
     size = 3
   ) +
-  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  facet_wrap(~ Item, ncol = 4, nrow = 4, scales = "free_y")  +
   labs(
     x = "Year",
     y = "Missing Percentage (%)"
