@@ -10,6 +10,7 @@ book:
     - index.qmd
     - intro.qmd
     - missing.qmd
+    - beans.qmd
     - summary.qmd
     - references.qmd
 
