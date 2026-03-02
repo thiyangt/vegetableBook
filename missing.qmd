@@ -16,7 +16,6 @@ library(fable)
 library(fabletools)
 ```
 
-
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.width=18, fig.height=10}
 vegetables.srilanka <- vegetables.srilanka |>
   mutate( Item = factor(Item, levels = c("Beans",
@@ -58,10 +57,7 @@ veg_filled <- vegetables_long_tsibble |>
 
 ## Dambulla
 
-
-
 ### Dambulla: Wholesale Price
-
 
 ```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary_dw <- veg_filled |>
@@ -100,7 +96,6 @@ ggplot(missing_summary_dw, aes(x = factor(Year), y = missing_pct,
     legend.position = "bottom"
   )
 ```
-
 
 ### Dambulla: Retail Price
 
@@ -142,12 +137,9 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
   )
 ```
 
-
-
 ## Pettah
 
 ### Pettah: Wholesale Price
-
 
 ```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary <- veg_filled |>
@@ -187,11 +179,7 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
   )
 ```
 
-
-
-
 ### Pettah: Retail Price
-
 
 ```{r, echo=FALSE, fig.width=10, fig.height=10}
 missing_summary <- veg_filled |>
@@ -230,4 +218,3 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
     legend.position = "bottom"
   )
 ```
-
