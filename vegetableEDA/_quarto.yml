@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Exploratory Data Analysis of Wholesale and Retail Vegetable Prices: Dambulla to Pettah"
+  author: "Thiyanga S. Talagala"
+  date: "3/2/2026"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

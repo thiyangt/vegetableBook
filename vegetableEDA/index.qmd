@@ -1,0 +1,9 @@
+# Preface {.unnumbered}
+
+Vegetable prices are part of everyday life in Sri Lanka. They influence household budgets, farmer incomes, market decisions, and national conversations about cost of living. Behind these movements lie patterns, structures, and stories waiting to be explored.
+
+This book presents an exploratory data analysis (EDA) of vegetable prices in Sri Lanka, focusing on Dambulla and Pettah. Rather than beginning with complex models, the aim is to start with curiosity—visualizing the data, identifying trends, detecting seasonality, examining volatility, and understanding price relationships between wholesale and retail markets.
+
+Exploratory data analysis is not merely a technical exercise. It is a way of thinking. Through careful visualization and structured exploration, we allow the data to speak before imposing assumptions. This approach helps uncover meaningful insights that can inform researchers, policymakers, traders, and students interested in market dynamics.
+
+This work is intended for learners, analysts, and practitioners who believe that understanding begins with exploration. May these pages encourage you to look at data not just as numbers, but as narratives of real markets and real lives.
