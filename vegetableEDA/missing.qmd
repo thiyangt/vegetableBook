@@ -1,6 +1,6 @@
 # Missing Value Distributions
 
-```{r, warning=FALSE, message=FALSE}
+```{r, echo=FALSE,warning=FALSE, message=FALSE}
 library(tidyverse)
 #install.packages("pak")
 #pak::pak("thiyangt/vegetablesSriLanka")
@@ -36,7 +36,7 @@ vegetables.srilanka <- vegetables.srilanka |>
 
 ```
 
-```{r}
+```{r, echo=FALSE}
 #vegetables.srilanka |>
 #  as_tsibble(key = c(Item, Type, Market),
 #    index = Date) |>
@@ -47,7 +47,7 @@ vegetables_long_tsibble <- vegetables.srilanka |>
     index = Date) 
 ```
 
-```{r}
+```{r, echo=FALSE}
 veg_filled <- vegetables_long_tsibble |>
   group_by_key() |>
   fill_gaps() |>
@@ -63,27 +63,66 @@ veg_filled <- vegetables_long_tsibble |>
 ### Dambulla: Wholesale Price
 
 
+```{r, echo=FALSE}
+missing_summary_dw <- veg_filled |>
+  as_tibble() |>
+  filter(Type == "Wholesale", Market == "Dambulla") |>
+  filter(!is.na(Item)) |>
+  select(Item, Price, Year) |>
+  group_by(Item, Year) |>
+  summarise(
+    missing_pct = mean(is.na(Price)) * 100,  # check missing only in Price
+    .groups = "drop"
+  ) |>
+  mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
+```
+
+```{r, echo=FALSE, out.width="100%"}
+
+
+ggplot(missing_summary_dw, aes(x = factor(Year), y = missing_pct,
+                           fill=Period))+
+  geom_bar(stat = "identity") +
+  geom_text(
+    aes(label = round(missing_pct, 1)),
+    vjust = 0.9,
+    size = 3
+  ) +
+  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  labs(
+    x = "Year",
+    y = "Missing Percentage (%)"
+  ) +
+  scale_fill_brewer(palette = "Set2") +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    strip.text = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+```
+
 
 ### Dambulla: Retail Price
 
-```{r}
-missing_summary <-  veg_filled |>
+```{r, echo=FALSE}
+missing_summary <- veg_filled |>
   as_tibble() |>
- filter(Type == "Retail" & Market == "Dambulla") |>
- filter(!is.na(Item)) |>
- select(Item, Price, Year) |>
+  filter(Type == "Retail", Market == "Dambulla") |>
+  filter(!is.na(Item)) |>
+  select(Item, Price, Year) |>
   group_by(Item, Year) |>
   summarise(
-    missing_pct = mean(!complete.cases(across())) * 100
-  )  |>
-  mutate(period = if_else(Year < 2022, "Before 2022", "2022 and After"))
+    missing_pct = mean(is.na(Price)) * 100,  # check missing only in Price
+    .groups = "drop"
+  ) |>
+  mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
 ```
 
-```{r}
+```{r, echo=FALSE, out.width="100%"}
 
 
 ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
-                           fill=period))+
+                           fill=Period))+
   geom_bar(stat = "identity") +
   geom_text(
     aes(label = round(missing_pct, 1)),
@@ -110,4 +149,85 @@ ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
 ### Pettah: Wholesale Price
 
 
+```{r, echo=FALSE}
+missing_summary <- veg_filled |>
+  as_tibble() |>
+  filter(Type == "Wholesale", Market == "Pettah") |>
+  filter(!is.na(Item)) |>
+  select(Item, Price, Year) |>
+  group_by(Item, Year) |>
+  summarise(
+    missing_pct = mean(is.na(Price)) * 100,  # check missing only in Price
+    .groups = "drop"
+  ) |>
+  mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
+```
+
+```{r, echo=FALSE, out.width="100%"}
+
+
+ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
+                           fill=Period))+
+  geom_bar(stat = "identity") +
+  geom_text(
+    aes(label = round(missing_pct, 1)),
+    vjust = 0.9,
+    size = 3
+  ) +
+  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  labs(
+    x = "Year",
+    y = "Missing Percentage (%)"
+  ) +
+  scale_fill_brewer(palette = "Set2") +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    strip.text = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+```
+
+
+
+
 ### Pettah: Retail Price
+
+
+```{r, echo=FALSE}
+missing_summary <- veg_filled |>
+  as_tibble() |>
+  filter(Type == "Retail", Market == "Pettah") |>
+  filter(!is.na(Item)) |>
+  select(Item, Price, Year) |>
+  group_by(Item, Year) |>
+  summarise(
+    missing_pct = mean(is.na(Price)) * 100,  # check missing only in Price
+    .groups = "drop"
+  ) |>
+  mutate(Period = if_else(Year < 2022, "Before 2022", "2022 and After"))
+```
+
+```{r, echo=FALSE, out.width="100%"}
+
+
+ggplot(missing_summary, aes(x = factor(Year), y = missing_pct,
+                           fill=Period))+
+  geom_bar(stat = "identity") +
+  geom_text(
+    aes(label = round(missing_pct, 1)),
+    vjust = 0.9,
+    size = 3
+  ) +
+  facet_wrap(~ Item, ncol = 5, nrow = 3, scales = "free_y")  +
+  labs(
+    x = "Year",
+    y = "Missing Percentage (%)"
+  ) +
+  scale_fill_brewer(palette = "Set2") +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    strip.text = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+```
+
