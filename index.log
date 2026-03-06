@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.22)  2 MAR 2026 12:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.2.22)  6 MAR 2026 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1096,9 +1096,267 @@ Overfull \hbox (10.94968pt too wide) in paragraph at lines 351--352
 [] 
  []
 
-[12] [13]
+[12]
+File: beans_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use beans_files/figure-pdf/unnamed-chunk-9-1.pdf>
+[13] [14]
+Overfull \vbox (65.64497pt too high) has occurred while \output is active []
+
+[15]
+File: beans_files/figure-pdf/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use beans_files/figure-pdf/unnamed-chunk-10-1.pdf>
+[16]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[17]
+File: beans_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use beans_files/figure-pdf/unnamed-chunk-11-1.pdf>
+[18]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[19]
+File: beans_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use beans_files/figure-pdf/unnamed-chunk-12-1.pdf>
+[20]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[21]
+File: beans_files/figure-pdf/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use beans_files/figure-pdf/unnamed-chunk-13-1.pdf>
+
+Overfull \hbox (10.94705pt too wide) in paragraph at lines 377--378
+[][] 
+ []
+
+File: beans_files/figure-pdf/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use beans_files/figure-pdf/unnamed-chunk-14-1.pdf>
+
+Overfull \hbox (10.93695pt too wide) in paragraph at lines 387--388
+[][] 
+ []
+
+[22]
 chapter 4.
-[14
+File: bigonionimp_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-5-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 397--398
+[] 
+ []
+
+File: bigonionimp_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-6-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 401--402
+[] 
+ []
+
+[23
+
+]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-7-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 405--406
+[] 
+ []
+
+[24]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-8-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 409--410
+[] 
+ []
+
+[25]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-9-1.pdf>
+[26] [27]
+Overfull \vbox (65.64497pt too high) has occurred while \output is active []
+
+[28]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-10-1.pdf>
+[29]
+Overfull \vbox (29.83182pt too high) has occurred while \output is active []
+
+[30]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-11-1.pdf>
+[31]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[32]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-12-1.pdf>
+[33]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[34]
+File: bigonionimp_files/figure-pdf/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-13-1.pdf>
+
+Overfull \hbox (10.94705pt too wide) in paragraph at lines 435--436
+[][] 
+ []
+
+File: bigonionimp_files/figure-pdf/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use bigonionimp_files/figure-pdf/unnamed-chunk-14-1.pdf>
+
+Overfull \hbox (10.93695pt too wide) in paragraph at lines 445--446
+[][] 
+ []
+
+[35]
+chapter 5.
+File: brinjal_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-5-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 455--456
+[] 
+ []
+
+File: brinjal_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-6-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 459--460
+[] 
+ []
+
+[36
+
+]
+File: brinjal_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-7-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 463--464
+[] 
+ []
+
+[37]
+File: brinjal_files/figure-pdf/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-8-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 467--468
+[] 
+ []
+
+[38]
+File: brinjal_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-9-1.pdf>
+[39] [40]
+Overfull \vbox (65.64497pt too high) has occurred while \output is active []
+
+[41]
+File: brinjal_files/figure-pdf/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-10-1.pdf>
+[42]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[43]
+File: brinjal_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-11-1.pdf>
+[44]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[45]
+File: brinjal_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-12-1.pdf>
+[46]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[47]
+File: brinjal_files/figure-pdf/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-13-1.pdf>
+
+Overfull \hbox (10.94705pt too wide) in paragraph at lines 493--494
+[][] 
+ []
+
+File: brinjal_files/figure-pdf/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use brinjal_files/figure-pdf/unnamed-chunk-14-1.pdf>
+
+Overfull \hbox (10.93695pt too wide) in paragraph at lines 503--504
+[][] 
+ []
+
+[48]
+chapter 6.
+File: cabbage_files/figure-pdf/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-5-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 513--514
+[] 
+ []
+
+File: cabbage_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-6-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 517--518
+[] 
+ []
+
+[49
+
+]
+File: cabbage_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-7-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 521--522
+[] 
+ []
+
+[50]
+File: cabbage_files/figure-pdf/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-8-1.pdf>
+
+Overfull \hbox (10.94968pt too wide) in paragraph at lines 525--526
+[] 
+ []
+
+[51]
+File: cabbage_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-9-1.pdf>
+[52] [53]
+Overfull \vbox (65.64497pt too high) has occurred while \output is active []
+
+[54]
+File: cabbage_files/figure-pdf/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-10-1.pdf>
+[55]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[56]
+File: cabbage_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-11-1.pdf>
+[57]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[58]
+File: cabbage_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-12-1.pdf>
+[59]
+Overfull \vbox (29.99022pt too high) has occurred while \output is active []
+
+[60]
+File: cabbage_files/figure-pdf/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-13-1.pdf>
+
+Overfull \hbox (10.94705pt too wide) in paragraph at lines 551--552
+[][] 
+ []
+
+File: cabbage_files/figure-pdf/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use cabbage_files/figure-pdf/unnamed-chunk-14-1.pdf>
+
+Overfull \hbox (10.93695pt too wide) in paragraph at lines 561--562
+[][] 
+ []
+
+[61]
+chapter 7.
+[62
 
 ]
 
@@ -1108,18 +1366,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.378 \end{CSLReferences}
+l.588 \end{CSLReferences}
                          
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
  
 Here is how much of TeX's memory you used:
- 24177 strings out of 470190
- 471942 string characters out of 5477220
+ 24514 strings out of 470190
+ 488424 string characters out of 5477220
  1177716 words of memory out of 5000000
- 52502 multiletter control sequences out of 15000+600000
+ 52832 multiletter control sequences out of 15000+600000
  632409 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,7n,114p,11208b,405s stack positions out of 10000i,1000n,20000p,200000b,200000s
-Output written on index.pdf (14 pages).
+Output written on index.pdf (62 pages).

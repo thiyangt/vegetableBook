@@ -295,13 +295,13 @@ real markets and real lives.
 \end{Shaded}
 
 \begin{verbatim}
-        Date  Item   Type   Market Price
-1 2016-08-01 Beans Retail Dambulla   165
-2 2016-08-02 Beans Retail Dambulla   190
-3 2016-08-03 Beans Retail Dambulla   190
-4 2016-08-04 Beans Retail Dambulla   190
-5 2016-08-05 Beans Retail Dambulla   190
-6 2016-08-08 Beans Retail Dambulla   190
+        Date            Item      Type   Market Price
+1 2016-08-01           Beans    Retail Dambulla   165
+2 2016-08-01           Beans    Retail   Pettah   160
+3 2016-08-01           Beans Wholesale Dambulla   130
+4 2016-08-01           Beans Wholesale   Pettah   140
+5 2016-08-01 Big Onion (Imp)    Retail Dambulla    80
+6 2016-08-01 Big Onion (Imp)    Retail   Pettah    80
 \end{verbatim}
 
 \bookmarksetup{startatroot}
@@ -349,6 +349,216 @@ real markets and real lives.
 \subsection{Pettah: Wholesale}\label{pettah-wholesale}
 
 \pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-8-1.pdf}}
+
+\section{Heatmap visualisation}\label{heatmap-visualisation}
+
+\section{Dambulla: Retail}\label{dambulla-retail-1}
+
+\pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-9-1.pdf}}
+
+\section{Dambulla: Wholesale}\label{dambulla-wholesale-1}
+
+\pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-10-1.pdf}}
+
+\section{Pettah: Retail}\label{pettah-retail-1}
+
+\pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-11-1.pdf}}
+
+\section{Pettah: Wholesale}\label{pettah-wholesale-1}
+
+\pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-12-1.pdf}}
+
+\section{Visualizing the Time Series After Imputing Missing Value:
+Linear
+Interpolation}\label{visualizing-the-time-series-after-imputing-missing-value-linear-interpolation}
+
+Static Visualisation
+
+\pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-13-1.pdf}}
+
+Interactive visualisation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplotly}\NormalTok{(pim)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{beans_files/figure-pdf/unnamed-chunk-14-1.pdf}}
+
+\bookmarksetup{startatroot}
+
+\chapter{Big Onion (Import)}\label{big-onion-import}
+
+\section{Dynamic Time Series Plot}\label{dynamic-time-series-plot-1}
+
+\subsection{Dambulla: Retail}\label{dambulla-retail-2}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-5-1.pdf}}
+
+\subsection{Dambulla: Wholesale}\label{dambulla-wholesale-2}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-6-1.pdf}}
+
+\subsection{Pettah: Retail}\label{pettah-retail-2}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-7-1.pdf}}
+
+\subsection{Pettah: Wholesale}\label{pettah-wholesale-2}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-8-1.pdf}}
+
+\section{Heatmap visualisation}\label{heatmap-visualisation-1}
+
+\section{Dambulla: Retail}\label{dambulla-retail-3}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-9-1.pdf}}
+
+\section{Dambulla: Wholesale}\label{dambulla-wholesale-3}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-10-1.pdf}}
+
+\section{Pettah: Retail}\label{pettah-retail-3}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-11-1.pdf}}
+
+\section{Pettah: Wholesale}\label{pettah-wholesale-3}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-12-1.pdf}}
+
+\section{Visualizing the Time Series After Imputing Missing Value:
+Linear
+Interpolation}\label{visualizing-the-time-series-after-imputing-missing-value-linear-interpolation-1}
+
+Static Visualisation
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-13-1.pdf}}
+
+Interactive visualisation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplotly}\NormalTok{(pim)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{bigonionimp_files/figure-pdf/unnamed-chunk-14-1.pdf}}
+
+\bookmarksetup{startatroot}
+
+\chapter{Brinjal}\label{brinjal}
+
+\section{Dynamic Time Series Plot}\label{dynamic-time-series-plot-2}
+
+\subsection{Dambulla: Retail}\label{dambulla-retail-4}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-5-1.pdf}}
+
+\subsection{Dambulla: Wholesale}\label{dambulla-wholesale-4}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-6-1.pdf}}
+
+\subsection{Pettah: Retail}\label{pettah-retail-4}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-7-1.pdf}}
+
+\subsection{Pettah: Wholesale}\label{pettah-wholesale-4}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-8-1.pdf}}
+
+\section{Heatmap visualisation}\label{heatmap-visualisation-2}
+
+\section{Dambulla: Retail}\label{dambulla-retail-5}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-9-1.pdf}}
+
+\section{Dambulla: Wholesale}\label{dambulla-wholesale-5}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-10-1.pdf}}
+
+\section{Pettah: Retail}\label{pettah-retail-5}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-11-1.pdf}}
+
+\section{Pettah: Wholesale}\label{pettah-wholesale-5}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-12-1.pdf}}
+
+\section{Visualizing the Time Series After Imputing Missing Value:
+Linear
+Interpolation}\label{visualizing-the-time-series-after-imputing-missing-value-linear-interpolation-2}
+
+Static Visualisation
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-13-1.pdf}}
+
+Interactive visualisation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplotly}\NormalTok{(pim)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{brinjal_files/figure-pdf/unnamed-chunk-14-1.pdf}}
+
+\bookmarksetup{startatroot}
+
+\chapter{Brinjal}\label{brinjal-1}
+
+\section{Dynamic Time Series Plot}\label{dynamic-time-series-plot-3}
+
+\subsection{Dambulla: Retail}\label{dambulla-retail-6}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-5-1.pdf}}
+
+\subsection{Dambulla: Wholesale}\label{dambulla-wholesale-6}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-6-1.pdf}}
+
+\subsection{Pettah: Retail}\label{pettah-retail-6}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-7-1.pdf}}
+
+\subsection{Pettah: Wholesale}\label{pettah-wholesale-6}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-8-1.pdf}}
+
+\section{Heatmap visualisation}\label{heatmap-visualisation-3}
+
+\section{Dambulla: Retail}\label{dambulla-retail-7}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-9-1.pdf}}
+
+\section{Dambulla: Wholesale}\label{dambulla-wholesale-7}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-10-1.pdf}}
+
+\section{Pettah: Retail}\label{pettah-retail-7}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-11-1.pdf}}
+
+\section{Pettah: Wholesale}\label{pettah-wholesale-7}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-12-1.pdf}}
+
+\section{Visualizing the Time Series After Imputing Missing Value:
+Linear
+Interpolation}\label{visualizing-the-time-series-after-imputing-missing-value-linear-interpolation-3}
+
+Static Visualisation
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-13-1.pdf}}
+
+Interactive visualisation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplotly}\NormalTok{(pim)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{cabbage_files/figure-pdf/unnamed-chunk-14-1.pdf}}
 
 \bookmarksetup{startatroot}
 
