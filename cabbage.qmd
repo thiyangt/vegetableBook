@@ -1,0 +1,473 @@
+# Brinjal
+
+```{r, echo=FALSE,warning=FALSE, message=FALSE}
+library(tidyverse)
+#install.packages("pak")
+#pak::pak("thiyangt/vegetablesSriLanka")
+library("vegetablesSriLanka")
+library(knitr)
+library(plotly)
+library(GGally)
+library(patchwork)
+library(lubridate)
+library(tsibble)
+library(feasts)
+library(fable)
+library(fabletools)
+library(viridis)
+library(devtools)
+#install_github("SteffenMoritz/imputeTS")
+library(imputeTS)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.width=18, fig.height=10}
+vegetables.srilanka <- vegetables.srilanka |>
+  mutate( Item = factor(Item, levels = c("Beans",
+                                   "Big Onion (Imp)",
+                                   "Brinjal",
+                                   "Cabbage",
+                                   "Carrot",
+                                   "Green Chilli",
+                                   "Lime",
+                                   "Potato (Imp)",
+                                   "Pumpkin",
+                                   "Snake gourd",
+                                   "Tomato",
+                                   "Potato (Local)",
+                                   "Big Onion (Local)", "Red Onion (Imp)",
+                                   "Red Onion (Local)"))) 
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#vegetables.srilanka |>
+#  as_tsibble(key = c(Item, Type, Market),
+#    index = Date) |>
+#  scan_gaps()
+
+vegetables_long_tsibble <- vegetables.srilanka |>
+  as_tsibble(key = c(Item, Type, Market),
+    index = Date) 
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE,}
+veg_filled <- vegetables_long_tsibble |>
+  group_by_key() |>
+  fill_gaps() |>
+  ungroup() |>
+  as_tsibble() |>
+  mutate(Year = year(Date))
+```
+
+## Dynamic Time Series Plot
+
+### Dambulla: Retail
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tsibble)
+library(dplyr)
+library(dygraphs)
+library(xts)
+
+# Filter for a single series
+Cabbage_dambulla <- veg_filled %>%
+  filter(Item == "Cabbage", Type == "Retail", Market == "Dambulla") %>%
+  select(Date, Price) %>%
+  arrange(Date)  # Ensure chronological order
+
+# Convert to xts
+Cabbage_xts <- xts(Cabbage_dambulla$Price, order.by = Cabbage_dambulla$Date)
+
+# Draw dygraph
+dygraph(Cabbage_xts, main = "Cabbage Price in Dambulla (Retail)") %>%
+  dyAxis("y", label = "Price (LKR)") %>%
+  dyRangeSelector()  # Adds interactive date range
+```
+
+### Dambulla: Wholesale
+
+```{r, echo=FALSE,  warning=FALSE, message=FALSE}
+library(tsibble)
+library(dplyr)
+library(dygraphs)
+library(xts)
+
+# Filter for a single series
+Cabbage_dambulla <- veg_filled %>%
+  filter(Item == "Cabbage", Type == "Wholesale", Market == "Dambulla") %>%
+  select(Date, Price) %>%
+  arrange(Date)  # Ensure chronological order
+
+# Convert to xts
+Cabbage_xts <- xts(Cabbage_dambulla$Price, order.by = Cabbage_dambulla$Date)
+
+# Draw dygraph
+dygraph(Cabbage_xts, main = "Cabbage Price in Dambulla (Wholesale)") %>%
+  dyAxis("y", label = "Price (LKR)") %>%
+  dyRangeSelector()  # Adds interactive date range
+```
+
+### Pettah: Retail
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tsibble)
+library(dplyr)
+library(dygraphs)
+library(xts)
+
+# Filter for a single series
+Cabbage_dambulla <- veg_filled %>%
+  filter(Item == "Cabbage", Type == "Retail", Market == "Dambulla") %>%
+  select(Date, Price) %>%
+  arrange(Date)  # Ensure chronological order
+
+# Convert to xts
+Cabbage_xts <- xts(Cabbage_dambulla$Price, order.by = Cabbage_dambulla$Date)
+
+# Draw dygraph
+dygraph(Cabbage_xts, main = "Cabbage Price in Pettah (Retail)") %>%
+  dyAxis("y", label = "Price (LKR)") %>%
+  dyRangeSelector()  # Adds interactive date range
+```
+
+### Pettah: Wholesale
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tsibble)
+library(dplyr)
+library(dygraphs)
+library(xts)
+
+# Filter for a single series
+Cabbage_dambulla <- veg_filled %>%
+  filter(Item == "Cabbage", Type == "Wholesale", Market == "Pettah") %>%
+  select(Date, Price) %>%
+  arrange(Date)  # Ensure chronological order
+
+# Convert to xts
+Cabbage_xts <- xts(Cabbage_dambulla$Price, order.by = Cabbage_dambulla$Date)
+
+# Draw dygraph
+dygraph(Cabbage_xts, main = "Cabbage Price in Pettah (Wholesale)") %>%
+  dyAxis("y", label = "Price (LKR)") %>%
+  dyRangeSelector()  # Adds interactive date range
+```
+
+## Heatmap visualisation
+
+## Dambulla: Retail
+
+```{r echo=FALSE, fig.height=15}
+p1 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Cabbage", Type == "Retail", Market == "Dambulla") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 50, 100, 150, 200, 300, Inf),
+      labels = c(
+        "<50",
+        "51–100",
+        "101–150",
+        "151–200",
+        "201–250",
+        ">251"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p1 <- p1 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+## Dambulla: Wholesale
+
+```{r echo=FALSE, fig.height=15}
+p2 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Cabbage", Type == "Wholesale", Market == "Dambulla") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 50, 100, 150, 200, 300, Inf),
+      labels = c(
+        "<50",
+        "51–100",
+        "101–150",
+        "151–200",
+        "201–250",
+        ">251"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p2 <- p2 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+## Pettah: Retail
+
+```{r echo=FALSE, fig.height=15}
+p3 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Cabbage", Type == "Retail", Market == "Pettah") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 50, 100, 150, 200, 300, Inf),
+      labels = c(
+        "<50",
+        "51–100",
+        "101–150",
+        "151–200",
+        "201–250",
+        ">251"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p3 <- p3 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+## Pettah: Wholesale
+
+```{r echo=FALSE, fig.height=15}
+p4 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Cabbage", Type == "Wholesale", Market == "Pettah") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 50, 100, 150, 200, 300, Inf),
+      labels = c(
+        "<50",
+        "51–100",
+        "101–150",
+        "151–200",
+        "201–250",
+        ">251"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p4 <- p4 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+
+## Visualizing the Time Series After Imputing Missing Value: Linear Interpolation
+
+Static Visualisation
+
+```{r, fig.width=10, echo=FALSE}
+CabbageRP_inter <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Cabbage", Type == "Retail", Market == "Pettah") |>
+  mutate(
+    Price_interp = na_interpolation(Price),
+    interpolated = is.na(Price)
+  )
+pim <- ggplot(CabbageRP_inter, aes(x = Date)) +
+  geom_line(aes(y = Price_interp), colour = "grey40") +
+  geom_point(aes(y = Price_interp, colour = interpolated), size = 2) +
+  scale_colour_manual(values = c("black", "red")) +
+  labs(
+    y = "Price",
+    title = "Cabbage Retail Price – Pettah Market",
+    colour = "Interpolated"
+  ) +
+  theme_minimal() 
+pim
+```
+
+Interactive visualisation
+
+```{r}
+ggplotly(pim)
+```
+
