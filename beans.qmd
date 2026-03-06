@@ -15,6 +15,9 @@ library(feasts)
 library(fable)
 library(fabletools)
 library(viridis)
+library(devtools)
+#install_github("SteffenMoritz/imputeTS")
+library(imputeTS)
 ```
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.width=18, fig.height=10}
@@ -114,7 +117,7 @@ library(xts)
 
 # Filter for a single series
 beans_dambulla <- veg_filled %>%
-  filter(Item == "Beans", Type == "Retail", Market == "Pettah") %>%
+  filter(Item == "Beans", Type == "Retail", Market == "Dambulla") %>%
   select(Date, Price) %>%
   arrange(Date)  # Ensure chronological order
 
@@ -157,7 +160,7 @@ dygraph(beans_xts, main = "Beans Price in Pettah (Wholesale)") %>%
 ```{r echo=FALSE, fig.height=15}
 p1 <- veg_filled |>
   filter(Year > 2022) |>
-  filter(Item == "Beans", Type == "Retail", Market == "Pettah") |>
+  filter(Item == "Beans", Type == "Retail", Market == "Dambulla") |>
   mutate(
     Week = isoweek(Date),
     Wday = factor(
@@ -222,3 +225,249 @@ ggplot(p1, aes(Week, Wday)) +
 
 
 ```
+
+## Dambulla: Wholesale
+
+```{r echo=FALSE, fig.height=15}
+p2 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Beans", Type == "Wholesale", Market == "Dambulla") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 100, 300, 500, 700, 800, Inf),
+      labels = c(
+        "<100",
+        "101–300",
+        "301–500",
+        "501–700",
+        "701–800",
+        ">801"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p2 <- p2 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+## Pettah: Retail
+
+```{r echo=FALSE, fig.height=15}
+p3 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Beans", Type == "Retail", Market == "Pettah") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 100, 300, 500, 700, 800, Inf),
+      labels = c(
+        "<100",
+        "101–300",
+        "301–500",
+        "501–700",
+        "701–800",
+        ">801"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p3 <- p3 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+## Pettah: Wholesale
+
+```{r echo=FALSE, fig.height=15}
+p4 <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Beans", Type == "Wholesale", Market == "Pettah") |>
+  mutate(
+    Week = isoweek(Date),
+    Wday = factor(
+      wday(Date, label = TRUE, abbr = TRUE, week_start = 1),
+      levels = c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+    ),
+    Count_bin = cut(
+      Price,
+      breaks = c(-Inf, 100, 300, 500, 700, 800, Inf),
+      labels = c(
+        "<100",
+        "101–300",
+        "301–500",
+        "501–700",
+        "701–800",
+        ">801"
+      ),
+      right = FALSE
+    )
+  )
+git_colours <- c(
+  "#d73027",
+  "#f46d43",
+  "#fdae61",
+  "#ffffbf",
+  "#74add1",
+  "#4575b4"
+)
+
+p4 <- p4 %>%
+  arrange(Date) %>%
+  group_by(Year) %>%
+  mutate(
+    Month_label = if_else(day(Date) == 1, 
+                          as.character(month(Date, label = TRUE, abbr = TRUE)), 
+                          NA_character_)
+  ) %>%
+  ungroup()
+ggplot(p1, aes(Week, Wday)) +
+  geom_tile(aes(fill = Count_bin),
+            width = 0.9, height = 0.9,
+            color = "white") +   # white outlines
+  geom_text(aes(x = Week, y = 8, label = Month_label),
+            na.rm = TRUE, fontface = "bold", size = 3) +
+  scale_fill_manual(values = git_colours, drop = FALSE, name = "Daily arrivals") +
+  facet_wrap(~ Year, ncol = 1) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_discrete(limits = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun")) +
+  labs(
+  #  title = "Daily Tourist Arrivals (GitHub-style Calendar Heatmap)",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.ticks = element_blank(),
+    strip.text = element_text(face = "bold")
+   # legend.position = "bottom"
+  )
+
+
+
+```
+
+
+## Visualizing the Time Series After Imputing Missing Value: Linear Interpolation
+
+Static Visualisation
+
+```{r, fig.width=10, echo=FALSE}
+BRP_inter <- veg_filled |>
+  filter(Year > 2022) |>
+  filter(Item == "Beans", Type == "Retail", Market == "Pettah") |>
+  mutate(
+    Price_interp = na_interpolation(Price),
+    interpolated = is.na(Price)
+  )
+pim <- ggplot(BRP_inter, aes(x = Date)) +
+  geom_line(aes(y = Price_interp), colour = "grey40") +
+  geom_point(aes(y = Price_interp, colour = interpolated), size = 2) +
+  scale_colour_manual(values = c("black", "red")) +
+  labs(
+    y = "Price",
+    title = "Beans Retail Price – Pettah Market",
+    colour = "Interpolated"
+  ) +
+  theme_minimal() 
+pim
+```
+
+Interactive visualisation
+
+```{r}
+ggplotly(pim)
+```
+

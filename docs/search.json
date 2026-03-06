@@ -38,5 +38,55 @@
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Beans</span>"
     ]
+  },
+  {
+    "objectID": "beans.html#visualizing-the-time-series-after-imputing-missing-value",
+    "href": "beans.html#visualizing-the-time-series-after-imputing-missing-value",
+    "title": "3  Beans",
+    "section": "3.7 Visualizing the Time Series After Imputing Missing Value",
+    "text": "3.7 Visualizing the Time Series After Imputing Missing Value\n\n\n\n\n\n\n\n\n\n\nggplotly(pim)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Beans</span>"
+    ]
+  },
+  {
+    "objectID": "beans.html#dambulla-wholesale-1",
+    "href": "beans.html#dambulla-wholesale-1",
+    "title": "3  Beans",
+    "section": "3.4 Dambulla: Wholesale",
+    "text": "3.4 Dambulla: Wholesale",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Beans</span>"
+    ]
+  },
+  {
+    "objectID": "beans.html#pettah-retail-1",
+    "href": "beans.html#pettah-retail-1",
+    "title": "3  Beans",
+    "section": "3.5 Pettah: Retail",
+    "text": "3.5 Pettah: Retail",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Beans</span>"
+    ]
+  },
+  {
+    "objectID": "beans.html#pettah-wholesale-1",
+    "href": "beans.html#pettah-wholesale-1",
+    "title": "3  Beans",
+    "section": "3.6 Pettah: Wholesale",
+    "text": "3.6 Pettah: Wholesale",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Beans</span>"
+    ]
+  },
+  {
+    "objectID": "beans.html#visualizing-the-time-series-after-imputing-missing-value-linear-interpolation",
+    "href": "beans.html#visualizing-the-time-series-after-imputing-missing-value-linear-interpolation",
+    "title": "3  Beans",
+    "section": "3.7 Visualizing the Time Series After Imputing Missing Value: Linear Interpolation",
+    "text": "3.7 Visualizing the Time Series After Imputing Missing Value: Linear Interpolation\nStatic Visualisation\n\n\n\n\n\n\n\n\n\nInteractive visualisation\n\nggplotly(pim)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Beans</span>"
+    ]
   }
 ]
