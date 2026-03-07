@@ -1,4 +1,4 @@
-# Brinjal
+# Cabbage
 
 ```{r, echo=FALSE,warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -439,7 +439,6 @@ ggplot(p1, aes(Week, Wday)) +
 
 ```
 
-
 ## Visualizing the Time Series After Imputing Missing Value: Linear Interpolation
 
 Static Visualisation
@@ -470,4 +469,3 @@ Interactive visualisation
 ```{r}
 ggplotly(pim)
 ```
-
